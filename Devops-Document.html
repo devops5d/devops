@@ -276,7 +276,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
         <h2>Configurations</h2>
         <div class="panel-group" id="accordion">
             <!-- Jenkins Custom build -->
-            <div class="panel panel-info">
+            <div class="panel panel-success">
                 <div class="panel-heading">
                     <div class="operation-summary"></div>
                     <h3 class="panel-title">
@@ -314,30 +314,6 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
                         <ul>
                             <li>Send notificatio when build trigred and completed.</li>
                             <li>Also send the status of build.</li>
-                        </ul>
-                    </section>
-                </div>
-            </div>
-
-            <!-- GKE CONFIG -->
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="operation-summary"></div>
-                    <h3 class="panel-title">
-                        <span class="operation-name">GKE</span>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#operation--gke">
-                            <strong>GKE CONFIG</strong>
-                        </a>
-                    </h3>
-                </div>
-                <div id="operation--gke" class="panel-body panel-collapse collapse">
-                    <section class="sw-operation-description">
-                        <ul>
-                            <li>Create Service account "kubectl create sa <-name->"</li>
-                            <li>Crete Cluster binding " kubectl create clusterrolebinding <-name-> --clusterrole=cluster-admin --serviceaccount<-namespace->:<-service account name-></li>
-                            <li>kubectl describe sa <-name-></li>
-                            <li>kubectl describe secret <-name-></li>
-                            <li>Copy the token to config file</li>
                         </ul>
                     </section>
                 </div>
@@ -493,6 +469,1214 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
                 </section>
             </div>
         </div>
+	<!-- GITHUB verify credentials GET -->
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <div class="operation-summary"></div>
+                <h3 class="panel-title">
+                    <span class="operation-name">GET</span>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#operation--verifyCredentials-get">
+                        <strong>https://api.github.com/user/:username/repos</strong>
+                    </a>
+                    <small class="right">Auth: True</small>
+                </h3>
+            </div>
+            <div id="operation--verifyCredentials-get" class="panel-body panel-collapse collapse">
+                <section class="sw-operation-description">
+                    <p>Verify credentials</p>
+                </section>
+
+                <!-- Headers -->
+                <section class="sw-request-headers">
+                    <dl>
+                        <dd>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Content-Type: application/json</p>
+                                    <p>Authorization: 
+                                        <i class="var">token {access-token}</i>
+                                    </p>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+        
+                
+                <!-- Responses -->
+                <section class="sw-responses">
+                    <dl>
+                        <dt class="sw-response-200">
+                            200 OK
+                        </dt>
+                        <dd class="sw-response-200">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Success response</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 sw-response-model">
+                                    <pre>
+					[
+    {
+        "id": 181664627,
+        "node_id": "MDEwOlJlcG9zaXRvcnkxODE2NjQ2Mjc=",
+        "name": "devops",
+        "full_name": "devops5d/devops",
+        "private": false,
+        "owner": {
+            "login": "devops5d",
+            "id": 49678371,
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjQ5Njc4Mzcx",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/49678371?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/devops5d",
+            "html_url": "https://github.com/devops5d",
+            "followers_url": "https://api.github.com/users/devops5d/followers",
+            "following_url": "https://api.github.com/users/devops5d/following{/other_user}",
+            "gists_url": "https://api.github.com/users/devops5d/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/devops5d/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/devops5d/subscriptions",
+            "organizations_url": "https://api.github.com/users/devops5d/orgs",
+            "repos_url": "https://api.github.com/users/devops5d/repos",
+            "events_url": "https://api.github.com/users/devops5d/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/devops5d/received_events",
+            "type": "Organization",
+            "site_admin": false
+        },
+        "html_url": "https://github.com/devops5d/devops",
+        "description": "api testing ",
+        "fork": false,
+        "url": "https://api.github.com/repos/devops5d/devops",
+        "forks_url": "https://api.github.com/repos/devops5d/devops/forks",
+        "keys_url": "https://api.github.com/repos/devops5d/devops/keys{/key_id}",
+        "collaborators_url": "https://api.github.com/repos/devops5d/devops/collaborators{/collaborator}",
+        "teams_url": "https://api.github.com/repos/devops5d/devops/teams",
+        "hooks_url": "https://api.github.com/repos/devops5d/devops/hooks",
+        "issue_events_url": "https://api.github.com/repos/devops5d/devops/issues/events{/number}",
+        "events_url": "https://api.github.com/repos/devops5d/devops/events",
+        "assignees_url": "https://api.github.com/repos/devops5d/devops/assignees{/user}",
+        "branches_url": "https://api.github.com/repos/devops5d/devops/branches{/branch}",
+        "tags_url": "https://api.github.com/repos/devops5d/devops/tags",
+        "blobs_url": "https://api.github.com/repos/devops5d/devops/git/blobs{/sha}",
+        "git_tags_url": "https://api.github.com/repos/devops5d/devops/git/tags{/sha}",
+        "git_refs_url": "https://api.github.com/repos/devops5d/devops/git/refs{/sha}",
+        "trees_url": "https://api.github.com/repos/devops5d/devops/git/trees{/sha}",
+        "statuses_url": "https://api.github.com/repos/devops5d/devops/statuses/{sha}",
+        "languages_url": "https://api.github.com/repos/devops5d/devops/languages",
+        "stargazers_url": "https://api.github.com/repos/devops5d/devops/stargazers",
+        "contributors_url": "https://api.github.com/repos/devops5d/devops/contributors",
+        "subscribers_url": "https://api.github.com/repos/devops5d/devops/subscribers",
+        "subscription_url": "https://api.github.com/repos/devops5d/devops/subscription",
+        "commits_url": "https://api.github.com/repos/devops5d/devops/commits{/sha}",
+        "git_commits_url": "https://api.github.com/repos/devops5d/devops/git/commits{/sha}",
+        "comments_url": "https://api.github.com/repos/devops5d/devops/comments{/number}",
+        "issue_comment_url": "https://api.github.com/repos/devops5d/devops/issues/comments{/number}",
+        "contents_url": "https://api.github.com/repos/devops5d/devops/contents/{+path}",
+        "compare_url": "https://api.github.com/repos/devops5d/devops/compare/{base}...{head}",
+        "merges_url": "https://api.github.com/repos/devops5d/devops/merges",
+        "archive_url": "https://api.github.com/repos/devops5d/devops/{archive_format}{/ref}",
+        "downloads_url": "https://api.github.com/repos/devops5d/devops/downloads",
+        "issues_url": "https://api.github.com/repos/devops5d/devops/issues{/number}",
+        "pulls_url": "https://api.github.com/repos/devops5d/devops/pulls{/number}",
+        "milestones_url": "https://api.github.com/repos/devops5d/devops/milestones{/number}",
+        "notifications_url": "https://api.github.com/repos/devops5d/devops/notifications{?since,all,participating}",
+        "labels_url": "https://api.github.com/repos/devops5d/devops/labels{/name}",
+        "releases_url": "https://api.github.com/repos/devops5d/devops/releases{/id}",
+        "deployments_url": "https://api.github.com/repos/devops5d/devops/deployments",
+        "created_at": "2019-04-16T10:08:06Z",
+        "updated_at": "2019-04-17T10:01:58Z",
+        "pushed_at": "2019-04-17T10:03:21Z",
+        "git_url": "git://github.com/devops5d/devops.git",
+        "ssh_url": "git@github.com:devops5d/devops.git",
+        "clone_url": "https://github.com/devops5d/devops.git",
+        "svn_url": "https://github.com/devops5d/devops",
+        "homepage": null,
+        "size": 63,
+        "stargazers_count": 0,
+        "watchers_count": 0,
+        "language": "HTML",
+        "has_issues": true,
+        "has_projects": true,
+        "has_downloads": true,
+        "has_wiki": true,
+        "has_pages": false,
+        "forks_count": 0,
+        "mirror_url": null,
+        "archived": false,
+        "disabled": false,
+        "open_issues_count": 0,
+        "license": null,
+        "forks": 0,
+        "open_issues": 0,
+        "watchers": 0,
+        "default_branch": "master",
+        "permissions": {
+            "admin": true,
+            "push": true,
+            "pull": true
+        }
+    }
+]
+                                </pre>
+                                </div>
+                            </div>
+                        </dd>
+                        <br/>
+                        <br/>
+                        <dt class="sw-response-500">
+                            404 Not Found
+                        </dt>
+                        <dd class="sw-response-500">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>No record found for the request
+                                        <i class="var"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </dd>
+                        <br/>
+                        <dt class="sw-response-500">
+                            500 Internal Server Error
+                        </dt>
+                        <dd class="sw-response-500">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Error response</p>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+
+	<!-- GITHUB Get Projects GET -->
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <div class="operation-summary"></div>
+                <h3 class="panel-title">
+                    <span class="operation-name">GET</span>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#operation--getProjects-get">
+                        <strong>https://api.github.com/user/repos</strong>
+                    </a>
+                    <small class="right">Auth: True</small>
+                </h3>
+            </div>
+            <div id="operation--getProjects-get" class="panel-body panel-collapse collapse">
+                <section class="sw-operation-description">
+                    <p>Get Repository of users</p>
+                </section>
+
+                <!-- Headers -->
+                <section class="sw-request-headers">
+                    <dl>
+                        <dd>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Content-Type: application/json</p>
+                                    <p>Authorization: 
+                                        <i class="var">token {access-token}</i>
+                                    </p>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+        
+                
+                <!-- Responses -->
+                <section class="sw-responses">
+                    <dl>
+                        <dt class="sw-response-200">
+                            200 OK
+                        </dt>
+                        <dd class="sw-response-200">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Success response</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 sw-response-model">
+                                    <pre>
+[
+  {
+    'deployments_url': 'https://api.github.com/repos/devops5d/devops/deployments',
+    'name': 'devops',
+    'downloads_url': 'https://api.github.com/repos/devops5d/devops/downloads',
+    'contents_url': 'https://api.github.com/repos/devops5d/devops/contents/{+path}',
+    'collaborators_url': 'https://api.github.com/repos/devops5d/devops/collaborators{/collaborator}',
+    'has_projects': True,
+    'archive_url': 'https://api.github.com/repos/devops5d/devops/{archive_format}{/ref}',
+    'assignees_url': 'https://api.github.com/repos/devops5d/devops/assignees{/user}',
+    'watchers': 0,
+    'open_issues_count': 0,
+    'git_url': 'git://github.com/devops5d/devops.git',
+    'git_tags_url': 'https://api.github.com/repos/devops5d/devops/git/tags{/sha}',
+    'full_name': 'devops5d/devops',
+    'merges_url': 'https://api.github.com/repos/devops5d/devops/merges',
+    'git_commits_url': 'https://api.github.com/repos/devops5d/devops/git/commits{/sha}',
+    'subscription_url': 'https://api.github.com/repos/devops5d/devops/subscription',
+    'private': False,
+    'forks': 0,
+    'teams_url': 'https://api.github.com/repos/devops5d/devops/teams',
+    'homepage': None,
+    'commits_url': 'https://api.github.com/repos/devops5d/devops/commits{/sha}',
+    'contributors_url': 'https://api.github.com/repos/devops5d/devops/contributors',
+    'comments_url': 'https://api.github.com/repos/devops5d/devops/comments{/number}',
+    'description': 'api testing ',
+    'license': None,
+    'notifications_url': 'https://api.github.com/repos/devops5d/devops/notifications{?since,all,participating}',
+    'keys_url': 'https://api.github.com/repos/devops5d/devops/keys{/key_id}',
+    'branches_url': 'https://api.github.com/repos/devops5d/devops/branches{/branch}',
+    'has_wiki': True,
+    'disabled': False,
+    'size': 63,
+    'mirror_url': None,
+    'forks_url': 'https://api.github.com/repos/devops5d/devops/forks',
+    'default_branch': 'master',
+    'updated_at': '2019-04-17T10:01:58Z',
+    'has_issues': True,
+    'owner': {
+      'node_id': 'MDEyOk9yZ2FuaXphdGlvbjQ5Njc4Mzcx',
+      'organizations_url': 'https://api.github.com/users/devops5d/orgs',
+      'type': 'Organization',
+      'gists_url': 'https://api.github.com/users/devops5d/gists{/gist_id}',
+      'following_url': 'https://api.github.com/users/devops5d/following{/other_user}',
+      'id': 49678371,
+      'login': 'devops5d',
+      'followers_url': 'https://api.github.com/users/devops5d/followers',
+      'starred_url': 'https://api.github.com/users/devops5d/starred{/owner}{/repo}',
+      'received_events_url': 'https://api.github.com/users/devops5d/received_events',
+      'url': 'https://api.github.com/users/devops5d',
+      'avatar_url': 'https://avatars0.githubusercontent.com/u/49678371?v=4',
+      'site_admin': False,
+      'html_url': 'https://github.com/devops5d',
+      'subscriptions_url': 'https://api.github.com/users/devops5d/subscriptions',
+      'events_url': 'https://api.github.com/users/devops5d/events{/privacy}',
+      'gravatar_id': '',
+      'repos_url': 'https://api.github.com/users/devops5d/repos'
+    },
+    'pulls_url': 'https://api.github.com/repos/devops5d/devops/pulls{/number}',
+    'svn_url': 'https://github.com/devops5d/devops',
+    'node_id': 'MDEwOlJlcG9zaXRvcnkxODE2NjQ2Mjc=',
+    'labels_url': 'https://api.github.com/repos/devops5d/devops/labels{/name}',
+    'html_url': 'https://github.com/devops5d/devops',
+    'releases_url': 'https://api.github.com/repos/devops5d/devops/releases{/id}',
+    'blobs_url': 'https://api.github.com/repos/devops5d/devops/git/blobs{/sha}',
+    'stargazers_count': 0,
+    'url': 'https://api.github.com/repos/devops5d/devops',
+    'milestones_url': 'https://api.github.com/repos/devops5d/devops/milestones{/number}',
+    'stargazers_url': 'https://api.github.com/repos/devops5d/devops/stargazers',
+    'ssh_url': 'git@github.com:devops5d/devops.git',
+    'watchers_count': 0,
+    'fork': False,
+    'events_url': 'https://api.github.com/repos/devops5d/devops/events',
+    'hooks_url': 'https://api.github.com/repos/devops5d/devops/hooks',
+    'open_issues': 0,
+    'permissions': {
+      'push': True,
+      'admin': True,
+      'pull': True
+    },
+    'has_downloads': True,
+    'language': 'HTML',
+    'git_refs_url': 'https://api.github.com/repos/devops5d/devops/git/refs{/sha}',
+    'trees_url': 'https://api.github.com/repos/devops5d/devops/git/trees{/sha}',
+    'languages_url': 'https://api.github.com/repos/devops5d/devops/languages',
+    'has_pages': False,
+    'id': 181664627,
+    'clone_url': 'https://github.com/devops5d/devops.git',
+    'issue_comment_url': 'https://api.github.com/repos/devops5d/devops/issues/comments{/number}',
+    'issue_events_url': 'https://api.github.com/repos/devops5d/devops/issues/events{/number}',
+    'subscribers_url': 'https://api.github.com/repos/devops5d/devops/subscribers',
+    'forks_count': 0,
+    'archived': False,
+    'pushed_at': '2019-04-17T10:03:21Z',
+    'compare_url': 'https://api.github.com/repos/devops5d/devops/compare/{base}...{head}',
+    'statuses_url': 'https://api.github.com/repos/devops5d/devops/statuses/{sha}',
+    'created_at': '2019-04-16T10:08:06Z',
+    'tags_url': 'https://api.github.com/repos/devops5d/devops/tags',
+    'issues_url': 'https://api.github.com/repos/devops5d/devops/issues{/number}'
+  },
+  {
+    'deployments_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/deployments',
+    'name': 'angular2-notifications',
+    'downloads_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/downloads',
+    'contents_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/contents/{+path}',
+    'collaborators_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/collaborators{/collaborator}',
+    'has_projects': True,
+    'archive_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/{archive_format}{/ref}',
+    'assignees_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/assignees{/user}',
+    'watchers': 0,
+    'open_issues_count': 0,
+    'git_url': 'git://github.com/ranjithssipl/angular2-notifications.git',
+    'git_tags_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/git/tags{/sha}',
+    'full_name': 'ranjithssipl/angular2-notifications',
+    'merges_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/merges',
+    'git_commits_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/git/commits{/sha}',
+    'subscription_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/subscription',
+    'private': False,
+    'forks': 0,
+    'teams_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/teams',
+    'homepage': 'https://jaspero.co/resources/projects/ng-notifications',
+    'commits_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/commits{/sha}',
+    'contributors_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/contributors',
+    'comments_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/comments{/number}',
+    'description': 'A light and easy to use notifications library for Angular 2. It features both regular page notifications (toasts) and push notifications.',
+    'license': {
+      'url': 'https://api.github.com/licenses/mit',
+      'name': 'MIT License',
+      'spdx_id': 'MIT',
+      'key': 'mit',
+      'node_id': 'MDc6TGljZW5zZTEz'
+    },
+    'notifications_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/notifications{?since,all,participating}',
+    'keys_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/keys{/key_id}',
+    'branches_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/branches{/branch}',
+    'has_wiki': True,
+    'disabled': False,
+    'size': 1405,
+    'mirror_url': None,
+    'forks_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/forks',
+    'default_branch': 'master',
+    'updated_at': '2018-03-17T17:49:30Z',
+    'has_issues': False,
+    'owner': {
+      'node_id': 'MDQ6VXNlcjM2OTY2MjU3',
+      'organizations_url': 'https://api.github.com/users/ranjithssipl/orgs',
+      'type': 'User',
+      'gists_url': 'https://api.github.com/users/ranjithssipl/gists{/gist_id}',
+      'following_url': 'https://api.github.com/users/ranjithssipl/following{/other_user}',
+      'id': 36966257,
+      'login': 'ranjithssipl',
+      'followers_url': 'https://api.github.com/users/ranjithssipl/followers',
+      'starred_url': 'https://api.github.com/users/ranjithssipl/starred{/owner}{/repo}',
+      'received_events_url': 'https://api.github.com/users/ranjithssipl/received_events',
+      'url': 'https://api.github.com/users/ranjithssipl',
+      'avatar_url': 'https://avatars2.githubusercontent.com/u/36966257?v=4',
+      'site_admin': False,
+      'html_url': 'https://github.com/ranjithssipl',
+      'subscriptions_url': 'https://api.github.com/users/ranjithssipl/subscriptions',
+      'events_url': 'https://api.github.com/users/ranjithssipl/events{/privacy}',
+      'gravatar_id': '',
+      'repos_url': 'https://api.github.com/users/ranjithssipl/repos'
+    },
+    'pulls_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/pulls{/number}',
+    'svn_url': 'https://github.com/ranjithssipl/angular2-notifications',
+    'node_id': 'MDEwOlJlcG9zaXRvcnkxMjU2NTQ4NDM=',
+    'labels_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/labels{/name}',
+    'html_url': 'https://github.com/ranjithssipl/angular2-notifications',
+    'releases_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/releases{/id}',
+    'blobs_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/git/blobs{/sha}',
+    'stargazers_count': 0,
+    'url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications',
+    'milestones_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/milestones{/number}',
+    'stargazers_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/stargazers',
+    'ssh_url': 'git@github.com:ranjithssipl/angular2-notifications.git',
+    'watchers_count': 0,
+    'fork': True,
+    'events_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/events',
+    'hooks_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/hooks',
+    'open_issues': 0,
+    'permissions': {
+      'push': True,
+      'admin': True,
+      'pull': True
+    },
+    'has_downloads': True,
+    'language': 'TypeScript',
+    'git_refs_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/git/refs{/sha}',
+    'trees_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/git/trees{/sha}',
+    'languages_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/languages',
+    'has_pages': False,
+    'id': 125654843,
+    'clone_url': 'https://github.com/ranjithssipl/angular2-notifications.git',
+    'issue_comment_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/issues/comments{/number}',
+    'issue_events_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/issues/events{/number}',
+    'subscribers_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/subscribers',
+    'forks_count': 0,
+    'archived': False,
+    'pushed_at': '2018-01-24T12:03:18Z',
+    'compare_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/compare/{base}...{head}',
+    'statuses_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/statuses/{sha}',
+    'created_at': '2018-03-17T17:49:28Z',
+    'tags_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/tags',
+    'issues_url': 'https://api.github.com/repos/ranjithssipl/angular2-notifications/issues{/number}'
+  },
+  {
+    'deployments_url': 'https://api.github.com/repos/ranjithssipl/chatbot/deployments',
+    'name': 'chatbot',
+    'downloads_url': 'https://api.github.com/repos/ranjithssipl/chatbot/downloads',
+    'contents_url': 'https://api.github.com/repos/ranjithssipl/chatbot/contents/{+path}',
+    'collaborators_url': 'https://api.github.com/repos/ranjithssipl/chatbot/collaborators{/collaborator}',
+    'has_projects': True,
+    'archive_url': 'https://api.github.com/repos/ranjithssipl/chatbot/{archive_format}{/ref}',
+    'assignees_url': 'https://api.github.com/repos/ranjithssipl/chatbot/assignees{/user}',
+    'watchers': 0,
+    'open_issues_count': 0,
+    'git_url': 'git://github.com/ranjithssipl/chatbot.git',
+    'git_tags_url': 'https://api.github.com/repos/ranjithssipl/chatbot/git/tags{/sha}',
+    'full_name': 'ranjithssipl/chatbot',
+    'merges_url': 'https://api.github.com/repos/ranjithssipl/chatbot/merges',
+    'git_commits_url': 'https://api.github.com/repos/ranjithssipl/chatbot/git/commits{/sha}',
+    'subscription_url': 'https://api.github.com/repos/ranjithssipl/chatbot/subscription',
+    'private': False,
+    'forks': 0,
+    'teams_url': 'https://api.github.com/repos/ranjithssipl/chatbot/teams',
+    'homepage': None,
+    'commits_url': 'https://api.github.com/repos/ranjithssipl/chatbot/commits{/sha}',
+    'contributors_url': 'https://api.github.com/repos/ranjithssipl/chatbot/contributors',
+    'comments_url': 'https://api.github.com/repos/ranjithssipl/chatbot/comments{/number}',
+    'description': None,
+    'license': None,
+    'notifications_url': 'https://api.github.com/repos/ranjithssipl/chatbot/notifications{?since,all,participating}',
+    'keys_url': 'https://api.github.com/repos/ranjithssipl/chatbot/keys{/key_id}',
+    'branches_url': 'https://api.github.com/repos/ranjithssipl/chatbot/branches{/branch}',
+    'has_wiki': True,
+    'disabled': False,
+    'size': 19179,
+    'mirror_url': None,
+    'forks_url': 'https://api.github.com/repos/ranjithssipl/chatbot/forks',
+    'default_branch': 'master',
+    'updated_at': '2018-04-10T08:01:19Z',
+    'has_issues': True,
+    'owner': {
+      'node_id': 'MDQ6VXNlcjM2OTY2MjU3',
+      'organizations_url': 'https://api.github.com/users/ranjithssipl/orgs',
+      'type': 'User',
+      'gists_url': 'https://api.github.com/users/ranjithssipl/gists{/gist_id}',
+      'following_url': 'https://api.github.com/users/ranjithssipl/following{/other_user}',
+      'id': 36966257,
+      'login': 'ranjithssipl',
+      'followers_url': 'https://api.github.com/users/ranjithssipl/followers',
+      'starred_url': 'https://api.github.com/users/ranjithssipl/starred{/owner}{/repo}',
+      'received_events_url': 'https://api.github.com/users/ranjithssipl/received_events',
+      'url': 'https://api.github.com/users/ranjithssipl',
+      'avatar_url': 'https://avatars2.githubusercontent.com/u/36966257?v=4',
+      'site_admin': False,
+      'html_url': 'https://github.com/ranjithssipl',
+      'subscriptions_url': 'https://api.github.com/users/ranjithssipl/subscriptions',
+      'events_url': 'https://api.github.com/users/ranjithssipl/events{/privacy}',
+      'gravatar_id': '',
+      'repos_url': 'https://api.github.com/users/ranjithssipl/repos'
+    },
+    'pulls_url': 'https://api.github.com/repos/ranjithssipl/chatbot/pulls{/number}',
+    'svn_url': 'https://github.com/ranjithssipl/chatbot',
+    'node_id': 'MDEwOlJlcG9zaXRvcnkxMjY5NDcyOTU=',
+    'labels_url': 'https://api.github.com/repos/ranjithssipl/chatbot/labels{/name}',
+    'html_url': 'https://github.com/ranjithssipl/chatbot',
+    'releases_url': 'https://api.github.com/repos/ranjithssipl/chatbot/releases{/id}',
+    'blobs_url': 'https://api.github.com/repos/ranjithssipl/chatbot/git/blobs{/sha}',
+    'stargazers_count': 0,
+    'url': 'https://api.github.com/repos/ranjithssipl/chatbot',
+    'milestones_url': 'https://api.github.com/repos/ranjithssipl/chatbot/milestones{/number}',
+    'stargazers_url': 'https://api.github.com/repos/ranjithssipl/chatbot/stargazers',
+    'ssh_url': 'git@github.com:ranjithssipl/chatbot.git',
+    'watchers_count': 0,
+    'fork': False,
+    'events_url': 'https://api.github.com/repos/ranjithssipl/chatbot/events',
+    'hooks_url': 'https://api.github.com/repos/ranjithssipl/chatbot/hooks',
+    'open_issues': 0,
+    'permissions': {
+      'push': True,
+      'admin': True,
+      'pull': True
+    },
+    'has_downloads': True,
+    'language': 'JavaScript',
+    'git_refs_url': 'https://api.github.com/repos/ranjithssipl/chatbot/git/refs{/sha}',
+    'trees_url': 'https://api.github.com/repos/ranjithssipl/chatbot/git/trees{/sha}',
+    'languages_url': 'https://api.github.com/repos/ranjithssipl/chatbot/languages',
+    'has_pages': True,
+    'id': 126947295,
+    'clone_url': 'https://github.com/ranjithssipl/chatbot.git',
+    'issue_comment_url': 'https://api.github.com/repos/ranjithssipl/chatbot/issues/comments{/number}',
+    'issue_events_url': 'https://api.github.com/repos/ranjithssipl/chatbot/issues/events{/number}',
+    'subscribers_url': 'https://api.github.com/repos/ranjithssipl/chatbot/subscribers',
+    'forks_count': 0,
+    'archived': False,
+    'pushed_at': '2018-04-10T08:01:18Z',
+    'compare_url': 'https://api.github.com/repos/ranjithssipl/chatbot/compare/{base}...{head}',
+    'statuses_url': 'https://api.github.com/repos/ranjithssipl/chatbot/statuses/{sha}',
+    'created_at': '2018-03-27T07:36:49Z',
+    'tags_url': 'https://api.github.com/repos/ranjithssipl/chatbot/tags',
+    'issues_url': 'https://api.github.com/repos/ranjithssipl/chatbot/issues{/number}'
+  },
+  {
+    'deployments_url': 'https://api.github.com/repos/ranjithssipl/Devops/deployments',
+    'name': 'Devops',
+    'downloads_url': 'https://api.github.com/repos/ranjithssipl/Devops/downloads',
+    'contents_url': 'https://api.github.com/repos/ranjithssipl/Devops/contents/{+path}',
+    'collaborators_url': 'https://api.github.com/repos/ranjithssipl/Devops/collaborators{/collaborator}',
+    'has_projects': True,
+    'archive_url': 'https://api.github.com/repos/ranjithssipl/Devops/{archive_format}{/ref}',
+    'assignees_url': 'https://api.github.com/repos/ranjithssipl/Devops/assignees{/user}',
+    'watchers': 0,
+    'open_issues_count': 0,
+    'git_url': 'git://github.com/ranjithssipl/Devops.git',
+    'git_tags_url': 'https://api.github.com/repos/ranjithssipl/Devops/git/tags{/sha}',
+    'full_name': 'ranjithssipl/Devops',
+    'merges_url': 'https://api.github.com/repos/ranjithssipl/Devops/merges',
+    'git_commits_url': 'https://api.github.com/repos/ranjithssipl/Devops/git/commits{/sha}',
+    'subscription_url': 'https://api.github.com/repos/ranjithssipl/Devops/subscription',
+    'private': False,
+    'forks': 0,
+    'teams_url': 'https://api.github.com/repos/ranjithssipl/Devops/teams',
+    'homepage': None,
+    'commits_url': 'https://api.github.com/repos/ranjithssipl/Devops/commits{/sha}',
+    'contributors_url': 'https://api.github.com/repos/ranjithssipl/Devops/contributors',
+    'comments_url': 'https://api.github.com/repos/ranjithssipl/Devops/comments{/number}',
+    'description': None,
+    'license': None,
+    'notifications_url': 'https://api.github.com/repos/ranjithssipl/Devops/notifications{?since,all,participating}',
+    'keys_url': 'https://api.github.com/repos/ranjithssipl/Devops/keys{/key_id}',
+    'branches_url': 'https://api.github.com/repos/ranjithssipl/Devops/branches{/branch}',
+    'has_wiki': True,
+    'disabled': False,
+    'size': 0,
+    'mirror_url': None,
+    'forks_url': 'https://api.github.com/repos/ranjithssipl/Devops/forks',
+    'default_branch': 'master',
+    'updated_at': '2019-04-16T07:31:10Z',
+    'has_issues': True,
+    'owner': {
+      'node_id': 'MDQ6VXNlcjM2OTY2MjU3',
+      'organizations_url': 'https://api.github.com/users/ranjithssipl/orgs',
+      'type': 'User',
+      'gists_url': 'https://api.github.com/users/ranjithssipl/gists{/gist_id}',
+      'following_url': 'https://api.github.com/users/ranjithssipl/following{/other_user}',
+      'id': 36966257,
+      'login': 'ranjithssipl',
+      'followers_url': 'https://api.github.com/users/ranjithssipl/followers',
+      'starred_url': 'https://api.github.com/users/ranjithssipl/starred{/owner}{/repo}',
+      'received_events_url': 'https://api.github.com/users/ranjithssipl/received_events',
+      'url': 'https://api.github.com/users/ranjithssipl',
+      'avatar_url': 'https://avatars2.githubusercontent.com/u/36966257?v=4',
+      'site_admin': False,
+      'html_url': 'https://github.com/ranjithssipl',
+      'subscriptions_url': 'https://api.github.com/users/ranjithssipl/subscriptions',
+      'events_url': 'https://api.github.com/users/ranjithssipl/events{/privacy}',
+      'gravatar_id': '',
+      'repos_url': 'https://api.github.com/users/ranjithssipl/repos'
+    },
+    'pulls_url': 'https://api.github.com/repos/ranjithssipl/Devops/pulls{/number}',
+    'svn_url': 'https://github.com/ranjithssipl/Devops',
+    'node_id': 'MDEwOlJlcG9zaXRvcnkxODE2MzgwOTk=',
+    'labels_url': 'https://api.github.com/repos/ranjithssipl/Devops/labels{/name}',
+    'html_url': 'https://github.com/ranjithssipl/Devops',
+    'releases_url': 'https://api.github.com/repos/ranjithssipl/Devops/releases{/id}',
+    'blobs_url': 'https://api.github.com/repos/ranjithssipl/Devops/git/blobs{/sha}',
+    'stargazers_count': 0,
+    'url': 'https://api.github.com/repos/ranjithssipl/Devops',
+    'milestones_url': 'https://api.github.com/repos/ranjithssipl/Devops/milestones{/number}',
+    'stargazers_url': 'https://api.github.com/repos/ranjithssipl/Devops/stargazers',
+    'ssh_url': 'git@github.com:ranjithssipl/Devops.git',
+    'watchers_count': 0,
+    'fork': False,
+    'events_url': 'https://api.github.com/repos/ranjithssipl/Devops/events',
+    'hooks_url': 'https://api.github.com/repos/ranjithssipl/Devops/hooks',
+    'open_issues': 0,
+    'permissions': {
+      'push': True,
+      'admin': True,
+      'pull': True
+    },
+    'has_downloads': True,
+    'language': None,
+    'git_refs_url': 'https://api.github.com/repos/ranjithssipl/Devops/git/refs{/sha}',
+    'trees_url': 'https://api.github.com/repos/ranjithssipl/Devops/git/trees{/sha}',
+    'languages_url': 'https://api.github.com/repos/ranjithssipl/Devops/languages',
+    'has_pages': False,
+    'id': 181638099,
+    'clone_url': 'https://github.com/ranjithssipl/Devops.git',
+    'issue_comment_url': 'https://api.github.com/repos/ranjithssipl/Devops/issues/comments{/number}',
+    'issue_events_url': 'https://api.github.com/repos/ranjithssipl/Devops/issues/events{/number}',
+    'subscribers_url': 'https://api.github.com/repos/ranjithssipl/Devops/subscribers',
+    'forks_count': 0,
+    'archived': False,
+    'pushed_at': '2019-04-16T07:31:09Z',
+    'compare_url': 'https://api.github.com/repos/ranjithssipl/Devops/compare/{base}...{head}',
+    'statuses_url': 'https://api.github.com/repos/ranjithssipl/Devops/statuses/{sha}',
+    'created_at': '2019-04-16T07:31:08Z',
+    'tags_url': 'https://api.github.com/repos/ranjithssipl/Devops/tags',
+    'issues_url': 'https://api.github.com/repos/ranjithssipl/Devops/issues{/number}'
+  },
+  {
+    'deployments_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/deployments',
+    'name': 'docker-hostmapper',
+    'downloads_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/downloads',
+    'contents_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/contents/{+path}',
+    'collaborators_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/collaborators{/collaborator}',
+    'has_projects': True,
+    'archive_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/{archive_format}{/ref}',
+    'assignees_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/assignees{/user}',
+    'watchers': 0,
+    'open_issues_count': 0,
+    'git_url': 'git://github.com/ranjithssipl/docker-hostmapper.git',
+    'git_tags_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/git/tags{/sha}',
+    'full_name': 'ranjithssipl/docker-hostmapper',
+    'merges_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/merges',
+    'git_commits_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/git/commits{/sha}',
+    'subscription_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/subscription',
+    'private': False,
+    'forks': 0,
+    'teams_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/teams',
+    'homepage': None,
+    'commits_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/commits{/sha}',
+    'contributors_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/contributors',
+    'comments_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/comments{/number}',
+    'description': "Update automatically your '/etc/hosts' of your running containers.",
+    'license': {
+      'url': 'https://api.github.com/licenses/apache-2.0',
+      'name': 'Apache License 2.0',
+      'spdx_id': 'Apache-2.0',
+      'key': 'apache-2.0',
+      'node_id': 'MDc6TGljZW5zZTI='
+    },
+    'notifications_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/notifications{?since,all,participating}',
+    'keys_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/keys{/key_id}',
+    'branches_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/branches{/branch}',
+    'has_wiki': True,
+    'disabled': False,
+    'size': 8,
+    'mirror_url': None,
+    'forks_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/forks',
+    'default_branch': 'master',
+    'updated_at': '2018-11-22T11:19:02Z',
+    'has_issues': False,
+    'owner': {
+      'node_id': 'MDQ6VXNlcjM2OTY2MjU3',
+      'organizations_url': 'https://api.github.com/users/ranjithssipl/orgs',
+      'type': 'User',
+      'gists_url': 'https://api.github.com/users/ranjithssipl/gists{/gist_id}',
+      'following_url': 'https://api.github.com/users/ranjithssipl/following{/other_user}',
+      'id': 36966257,
+      'login': 'ranjithssipl',
+      'followers_url': 'https://api.github.com/users/ranjithssipl/followers',
+      'starred_url': 'https://api.github.com/users/ranjithssipl/starred{/owner}{/repo}',
+      'received_events_url': 'https://api.github.com/users/ranjithssipl/received_events',
+      'url': 'https://api.github.com/users/ranjithssipl',
+      'avatar_url': 'https://avatars2.githubusercontent.com/u/36966257?v=4',
+      'site_admin': False,
+      'html_url': 'https://github.com/ranjithssipl',
+      'subscriptions_url': 'https://api.github.com/users/ranjithssipl/subscriptions',
+      'events_url': 'https://api.github.com/users/ranjithssipl/events{/privacy}',
+      'gravatar_id': '',
+      'repos_url': 'https://api.github.com/users/ranjithssipl/repos'
+    },
+    'pulls_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/pulls{/number}',
+    'svn_url': 'https://github.com/ranjithssipl/docker-hostmapper',
+    'node_id': 'MDEwOlJlcG9zaXRvcnkxNTg2ODgyNjI=',
+    'labels_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/labels{/name}',
+    'html_url': 'https://github.com/ranjithssipl/docker-hostmapper',
+    'releases_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/releases{/id}',
+    'blobs_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/git/blobs{/sha}',
+    'stargazers_count': 0,
+    'url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper',
+    'milestones_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/milestones{/number}',
+    'stargazers_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/stargazers',
+    'ssh_url': 'git@github.com:ranjithssipl/docker-hostmapper.git',
+    'watchers_count': 0,
+    'fork': True,
+    'events_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/events',
+    'hooks_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/hooks',
+    'open_issues': 0,
+    'permissions': {
+      'push': True,
+      'admin': True,
+      'pull': True
+    },
+    'has_downloads': True,
+    'language': 'Shell',
+    'git_refs_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/git/refs{/sha}',
+    'trees_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/git/trees{/sha}',
+    'languages_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/languages',
+    'has_pages': False,
+    'id': 158688262,
+    'clone_url': 'https://github.com/ranjithssipl/docker-hostmapper.git',
+    'issue_comment_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/issues/comments{/number}',
+    'issue_events_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/issues/events{/number}',
+    'subscribers_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/subscribers',
+    'forks_count': 0,
+    'archived': False,
+    'pushed_at': '2017-08-12T18:44:15Z',
+    'compare_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/compare/{base}...{head}',
+    'statuses_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/statuses/{sha}',
+    'created_at': '2018-11-22T11:19:00Z',
+    'tags_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/tags',
+    'issues_url': 'https://api.github.com/repos/ranjithssipl/docker-hostmapper/issues{/number}'
+  },
+  {
+    'deployments_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/deployments',
+    'name': 'react-chartjs',
+    'downloads_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/downloads',
+    'contents_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/contents/{+path}',
+    'collaborators_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/collaborators{/collaborator}',
+    'has_projects': True,
+    'archive_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/{archive_format}{/ref}',
+    'assignees_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/assignees{/user}',
+    'watchers': 0,
+    'open_issues_count': 0,
+    'git_url': 'git://github.com/ranjithssipl/react-chartjs.git',
+    'git_tags_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/git/tags{/sha}',
+    'full_name': 'ranjithssipl/react-chartjs',
+    'merges_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/merges',
+    'git_commits_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/git/commits{/sha}',
+    'subscription_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/subscription',
+    'private': False,
+    'forks': 0,
+    'teams_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/teams',
+    'homepage': None,
+    'commits_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/commits{/sha}',
+    'contributors_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/contributors',
+    'comments_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/comments{/number}',
+    'description': 'common react charting components using chart.js',
+    'license': {
+      'url': 'https://api.github.com/licenses/mit',
+      'name': 'MIT License',
+      'spdx_id': 'MIT',
+      'key': 'mit',
+      'node_id': 'MDc6TGljZW5zZTEz'
+    },
+    'notifications_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/notifications{?since,all,participating}',
+    'keys_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/keys{/key_id}',
+    'branches_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/branches{/branch}',
+    'has_wiki': True,
+    'disabled': False,
+    'size': 133,
+    'mirror_url': None,
+    'forks_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/forks',
+    'default_branch': 'master',
+    'updated_at': '2018-03-13T05:45:01Z',
+    'has_issues': False,
+    'owner': {
+      'node_id': 'MDQ6VXNlcjM2OTY2MjU3',
+      'organizations_url': 'https://api.github.com/users/ranjithssipl/orgs',
+      'type': 'User',
+      'gists_url': 'https://api.github.com/users/ranjithssipl/gists{/gist_id}',
+      'following_url': 'https://api.github.com/users/ranjithssipl/following{/other_user}',
+      'id': 36966257,
+      'login': 'ranjithssipl',
+      'followers_url': 'https://api.github.com/users/ranjithssipl/followers',
+      'starred_url': 'https://api.github.com/users/ranjithssipl/starred{/owner}{/repo}',
+      'received_events_url': 'https://api.github.com/users/ranjithssipl/received_events',
+      'url': 'https://api.github.com/users/ranjithssipl',
+      'avatar_url': 'https://avatars2.githubusercontent.com/u/36966257?v=4',
+      'site_admin': False,
+      'html_url': 'https://github.com/ranjithssipl',
+      'subscriptions_url': 'https://api.github.com/users/ranjithssipl/subscriptions',
+      'events_url': 'https://api.github.com/users/ranjithssipl/events{/privacy}',
+      'gravatar_id': '',
+      'repos_url': 'https://api.github.com/users/ranjithssipl/repos'
+    },
+    'pulls_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/pulls{/number}',
+    'svn_url': 'https://github.com/ranjithssipl/react-chartjs',
+    'node_id': 'MDEwOlJlcG9zaXRvcnkxMjQ5OTg2MDI=',
+    'labels_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/labels{/name}',
+    'html_url': 'https://github.com/ranjithssipl/react-chartjs',
+    'releases_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/releases{/id}',
+    'blobs_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/git/blobs{/sha}',
+    'stargazers_count': 0,
+    'url': 'https://api.github.com/repos/ranjithssipl/react-chartjs',
+    'milestones_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/milestones{/number}',
+    'stargazers_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/stargazers',
+    'ssh_url': 'git@github.com:ranjithssipl/react-chartjs.git',
+    'watchers_count': 0,
+    'fork': True,
+    'events_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/events',
+    'hooks_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/hooks',
+    'open_issues': 0,
+    'permissions': {
+      'push': True,
+      'admin': True,
+      'pull': True
+    },
+    'has_downloads': True,
+    'language': 'JavaScript',
+    'git_refs_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/git/refs{/sha}',
+    'trees_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/git/trees{/sha}',
+    'languages_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/languages',
+    'has_pages': False,
+    'id': 124998602,
+    'clone_url': 'https://github.com/ranjithssipl/react-chartjs.git',
+    'issue_comment_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/issues/comments{/number}',
+    'issue_events_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/issues/events{/number}',
+    'subscribers_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/subscribers',
+    'forks_count': 0,
+    'archived': False,
+    'pushed_at': '2018-01-14T21:24:53Z',
+    'compare_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/compare/{base}...{head}',
+    'statuses_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/statuses/{sha}',
+    'created_at': '2018-03-13T05:44:59Z',
+    'tags_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/tags',
+    'issues_url': 'https://api.github.com/repos/ranjithssipl/react-chartjs/issues{/number}'
+  },
+  {
+    'deployments_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/deployments',
+    'name': 'react-chat-modified-widget',
+    'downloads_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/downloads',
+    'contents_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/contents/{+path}',
+    'collaborators_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/collaborators{/collaborator}',
+    'has_projects': True,
+    'archive_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/{archive_format}{/ref}',
+    'assignees_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/assignees{/user}',
+    'watchers': 0,
+    'open_issues_count': 0,
+    'git_url': 'git://github.com/ranjithssipl/react-chat-modified-widget.git',
+    'git_tags_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/git/tags{/sha}',
+    'full_name': 'ranjithssipl/react-chat-modified-widget',
+    'merges_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/merges',
+    'git_commits_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/git/commits{/sha}',
+    'subscription_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/subscription',
+    'private': False,
+    'forks': 0,
+    'teams_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/teams',
+    'homepage': None,
+    'commits_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/commits{/sha}',
+    'contributors_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/contributors',
+    'comments_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/comments{/number}',
+    'description': None,
+    'license': {
+      'url': 'https://api.github.com/licenses/mit',
+      'name': 'MIT License',
+      'spdx_id': 'MIT',
+      'key': 'mit',
+      'node_id': 'MDc6TGljZW5zZTEz'
+    },
+    'notifications_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/notifications{?since,all,participating}',
+    'keys_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/keys{/key_id}',
+    'branches_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/branches{/branch}',
+    'has_wiki': True,
+    'disabled': False,
+    'size': 582,
+    'mirror_url': None,
+    'forks_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/forks',
+    'default_branch': 'master',
+    'updated_at': '2018-03-27T10:56:33Z',
+    'has_issues': True,
+    'owner': {
+      'node_id': 'MDQ6VXNlcjM2OTY2MjU3',
+      'organizations_url': 'https://api.github.com/users/ranjithssipl/orgs',
+      'type': 'User',
+      'gists_url': 'https://api.github.com/users/ranjithssipl/gists{/gist_id}',
+      'following_url': 'https://api.github.com/users/ranjithssipl/following{/other_user}',
+      'id': 36966257,
+      'login': 'ranjithssipl',
+      'followers_url': 'https://api.github.com/users/ranjithssipl/followers',
+      'starred_url': 'https://api.github.com/users/ranjithssipl/starred{/owner}{/repo}',
+      'received_events_url': 'https://api.github.com/users/ranjithssipl/received_events',
+      'url': 'https://api.github.com/users/ranjithssipl',
+      'avatar_url': 'https://avatars2.githubusercontent.com/u/36966257?v=4',
+      'site_admin': False,
+      'html_url': 'https://github.com/ranjithssipl',
+      'subscriptions_url': 'https://api.github.com/users/ranjithssipl/subscriptions',
+      'events_url': 'https://api.github.com/users/ranjithssipl/events{/privacy}',
+      'gravatar_id': '',
+      'repos_url': 'https://api.github.com/users/ranjithssipl/repos'
+    },
+    'pulls_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/pulls{/number}',
+    'svn_url': 'https://github.com/ranjithssipl/react-chat-modified-widget',
+    'node_id': 'MDEwOlJlcG9zaXRvcnkxMjY5NzE5NjQ=',
+    'labels_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/labels{/name}',
+    'html_url': 'https://github.com/ranjithssipl/react-chat-modified-widget',
+    'releases_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/releases{/id}',
+    'blobs_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/git/blobs{/sha}',
+    'stargazers_count': 0,
+    'url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget',
+    'milestones_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/milestones{/number}',
+    'stargazers_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/stargazers',
+    'ssh_url': 'git@github.com:ranjithssipl/react-chat-modified-widget.git',
+    'watchers_count': 0,
+    'fork': False,
+    'events_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/events',
+    'hooks_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/hooks',
+    'open_issues': 0,
+    'permissions': {
+      'push': True,
+      'admin': True,
+      'pull': True
+    },
+    'has_downloads': True,
+    'language': 'JavaScript',
+    'git_refs_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/git/refs{/sha}',
+    'trees_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/git/trees{/sha}',
+    'languages_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/languages',
+    'has_pages': False,
+    'id': 126971964,
+    'clone_url': 'https://github.com/ranjithssipl/react-chat-modified-widget.git',
+    'issue_comment_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/issues/comments{/number}',
+    'issue_events_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/issues/events{/number}',
+    'subscribers_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/subscribers',
+    'forks_count': 0,
+    'archived': False,
+    'pushed_at': '2018-03-27T10:56:31Z',
+    'compare_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/compare/{base}...{head}',
+    'statuses_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/statuses/{sha}',
+    'created_at': '2018-03-27T10:47:52Z',
+    'tags_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/tags',
+    'issues_url': 'https://api.github.com/repos/ranjithssipl/react-chat-modified-widget/issues{/number}'
+  },
+  {
+    'deployments_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/deployments',
+    'name': 'react-chat-widget',
+    'downloads_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/downloads',
+    'contents_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/contents/{+path}',
+    'collaborators_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/collaborators{/collaborator}',
+    'has_projects': True,
+    'archive_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/{archive_format}{/ref}',
+    'assignees_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/assignees{/user}',
+    'watchers': 0,
+    'open_issues_count': 0,
+    'git_url': 'git://github.com/ranjithssipl/react-chat-widget.git',
+    'git_tags_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/git/tags{/sha}',
+    'full_name': 'ranjithssipl/react-chat-widget',
+    'merges_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/merges',
+    'git_commits_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/git/commits{/sha}',
+    'subscription_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/subscription',
+    'private': False,
+    'forks': 0,
+    'teams_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/teams',
+    'homepage': '',
+    'commits_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/commits{/sha}',
+    'contributors_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/contributors',
+    'comments_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/comments{/number}',
+    'description': 'Awesome chat widget for your React App',
+    'license': {
+      'url': 'https://api.github.com/licenses/mit',
+      'name': 'MIT License',
+      'spdx_id': 'MIT',
+      'key': 'mit',
+      'node_id': 'MDc6TGljZW5zZTEz'
+    },
+    'notifications_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/notifications{?since,all,participating}',
+    'keys_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/keys{/key_id}',
+    'branches_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/branches{/branch}',
+    'has_wiki': False,
+    'disabled': False,
+    'size': 543,
+    'mirror_url': None,
+    'forks_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/forks',
+    'default_branch': 'master',
+    'updated_at': '2018-03-01T17:44:22Z',
+    'has_issues': False,
+    'owner': {
+      'node_id': 'MDQ6VXNlcjM2OTY2MjU3',
+      'organizations_url': 'https://api.github.com/users/ranjithssipl/orgs',
+      'type': 'User',
+      'gists_url': 'https://api.github.com/users/ranjithssipl/gists{/gist_id}',
+      'following_url': 'https://api.github.com/users/ranjithssipl/following{/other_user}',
+      'id': 36966257,
+      'login': 'ranjithssipl',
+      'followers_url': 'https://api.github.com/users/ranjithssipl/followers',
+      'starred_url': 'https://api.github.com/users/ranjithssipl/starred{/owner}{/repo}',
+      'received_events_url': 'https://api.github.com/users/ranjithssipl/received_events',
+      'url': 'https://api.github.com/users/ranjithssipl',
+      'avatar_url': 'https://avatars2.githubusercontent.com/u/36966257?v=4',
+      'site_admin': False,
+      'html_url': 'https://github.com/ranjithssipl',
+      'subscriptions_url': 'https://api.github.com/users/ranjithssipl/subscriptions',
+      'events_url': 'https://api.github.com/users/ranjithssipl/events{/privacy}',
+      'gravatar_id': '',
+      'repos_url': 'https://api.github.com/users/ranjithssipl/repos'
+    },
+    'pulls_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/pulls{/number}',
+    'svn_url': 'https://github.com/ranjithssipl/react-chat-widget',
+    'node_id': 'MDEwOlJlcG9zaXRvcnkxMjM0NzA3OTM=',
+    'labels_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/labels{/name}',
+    'html_url': 'https://github.com/ranjithssipl/react-chat-widget',
+    'releases_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/releases{/id}',
+    'blobs_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/git/blobs{/sha}',
+    'stargazers_count': 0,
+    'url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget',
+    'milestones_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/milestones{/number}',
+    'stargazers_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/stargazers',
+    'ssh_url': 'git@github.com:ranjithssipl/react-chat-widget.git',
+    'watchers_count': 0,
+    'fork': True,
+    'events_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/events',
+    'hooks_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/hooks',
+    'open_issues': 0,
+    'permissions': {
+      'push': True,
+      'admin': True,
+      'pull': True
+    },
+    'has_downloads': True,
+    'language': 'JavaScript',
+    'git_refs_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/git/refs{/sha}',
+    'trees_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/git/trees{/sha}',
+    'languages_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/languages',
+    'has_pages': False,
+    'id': 123470793,
+    'clone_url': 'https://github.com/ranjithssipl/react-chat-widget.git',
+    'issue_comment_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/issues/comments{/number}',
+    'issue_events_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/issues/events{/number}',
+    'subscribers_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/subscribers',
+    'forks_count': 0,
+    'archived': False,
+    'pushed_at': '2018-02-15T16:47:37Z',
+    'compare_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/compare/{base}...{head}',
+    'statuses_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/statuses/{sha}',
+    'created_at': '2018-03-01T17:44:20Z',
+    'tags_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/tags',
+    'issues_url': 'https://api.github.com/repos/ranjithssipl/react-chat-widget/issues{/number}'
+  }
+]
+                                </pre>
+                                </div>
+                            </div>
+                        </dd>
+                        <br/>
+                        <br/>
+                        <dt class="sw-response-500">
+                            404 Not Found
+                        </dt>
+                        <dd class="sw-response-500">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>No record found for the request
+                                        <i class="var"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </dd>
+                        <br/>
+                        <dt class="sw-response-500">
+                            500 Internal Server Error
+                        </dt>
+                        <dd class="sw-response-500">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Error response</p>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+
+	<!-- GITHUB Get Branches GET -->
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <div class="operation-summary"></div>
+                <h3 class="panel-title">
+                    <span class="operation-name">GET</span>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#operation--getBranches-get">
+                        <strong>https://api.github.com/repos/:owner/:repo/branches</strong>
+                    </a>
+                    <small class="right">Auth: True</small>
+                </h3>
+            </div>
+            <div id="operation--getBranches-get" class="panel-body panel-collapse collapse">
+                <section class="sw-operation-description">
+                    <p>Get Branches of repository</p>
+                </section>
+
+                <!-- Headers -->
+                <section class="sw-request-headers">
+                    <dl>
+                        <dd>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Content-Type: application/json</p>
+                                    <p>Authorization: 
+                                        <i class="var">token {access-token}</i>
+                                    </p>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+        
+                
+                <!-- Responses -->
+                <section class="sw-responses">
+                    <dl>
+                        <dt class="sw-response-200">
+                            200 OK
+                        </dt>
+                        <dd class="sw-response-200">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Success response</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 sw-response-model">
+                                    <pre>
+					[
+    {
+        "name": "development",
+        "commit": {
+            "sha": "98101c74a9622ae0b48d7fd40b2bb0b4c82e5af0",
+            "url": "https://api.github.com/repos/devops5d/devops/commits/98101c74a9622ae0b48d7fd40b2bb0b4c82e5af0"
+        },
+        "protected": false,
+        "protection": {
+            "enabled": false,
+            "required_status_checks": {
+                "enforcement_level": "off",
+                "contexts": []
+            }
+        },
+        "protection_url": "https://api.github.com/repos/devops5d/devops/branches/development/protection"
+    },
+    {
+        "name": "master",
+        "commit": {
+            "sha": "98101c74a9622ae0b48d7fd40b2bb0b4c82e5af0",
+            "url": "https://api.github.com/repos/devops5d/devops/commits/98101c74a9622ae0b48d7fd40b2bb0b4c82e5af0"
+        },
+        "protected": false,
+        "protection": {
+            "enabled": false,
+            "required_status_checks": {
+                "enforcement_level": "off",
+                "contexts": []
+            }
+        },
+        "protection_url": "https://api.github.com/repos/devops5d/devops/branches/master/protection"
+    }
+]
+                                </pre>
+                                </div>
+                            </div>
+                        </dd>
+                        <br/>
+                        <br/>
+                        <dt class="sw-response-500">
+                            404 Not Found
+                        </dt>
+                        <dd class="sw-response-500">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>No record found for the request
+                                        <i class="var"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </dd>
+                        <br/>
+                        <dt class="sw-response-500">
+                            500 Internal Server Error
+                        </dt>
+                        <dd class="sw-response-500">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Error response</p>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+
         
 
                     </div>
